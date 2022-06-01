@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>聊天室</title>
+</head>
+<link rel="stylesheet" href="css/main.css">
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+  var username;
+  $(function (){
+    $.ajax({
+      url:"user/getUsername",
+      success:function (res){
+          username = res;
+          $(".user").text("用户:"+username+"已登录");
+          $(".status").text("在线").css("color","green")
+      }
+    })
+
+    //  定时10秒发一次请求刷新在线人员
+    setInterval(function (){
+        $.ajax({
+            url: "XX",
+            success: function (res){
+            //    结果为在线人数
+            }
+        })
+    },10000)
+
+    var websocket = null;
+  //发送websocket请求
+    if ("WebSocket" in window){
+        websocket = new WebSocket("ws://localhost:8899/chat/websocket")
+    }else {
+        alert("当前浏览器不支持websocket")
+    }
+
+    //连接错误触发
+    websocket.onerror = function (){
+        $(".ServerStatus").text("服务器发生错误")
+    }
+
+    //连接成功触发
+    websocket.onopen = function (){
+        $(".ServerStatus").text("服务器连接成功")
+    }
+
+    //接收到消息触发
+    websocket.onmessage = function (){
+
+    }
+
+      //连接关闭触发
+      websocket.onclose = function (){
+
+      }
+
+
+    window.onbeforeunload = function (){
+        closeWebSocket();
+    }
+
+    function closeWebSocket(){
+        websocket.close();
+    }
+
+    //获取输入框内容
+    $(".right_box1 input").click(function (){
+        var info = $(".right_box1 textarea").val();
+        alert(info)
+    })
+
+  })
+</script>
+<body>
+<div class="top">
+    <h1 class="user"></h1>
+    <span>状态:</span>
+    <span class="status" style="color: red">离线</span>
+</div>
+<h3 class="ServerStatus"></h3>
+<div class="left">
+    <table>
+        <tr>
+            <td>当前在线</td>
+        </tr>
+    </table>
+</div>
+<div class="right">
+    <h4>当前无会话</h4>
+    <div class="right_box1">
+        <textarea style="display: inline-block"></textarea>
+        <input type="submit" value="发送" style="display: inline-block">
+    </div>
+</div>
+
+
+
+</body>
+</html>

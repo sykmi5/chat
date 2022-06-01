@@ -1,0 +1,32 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+#top{
+    height: 200px;
+    background-color: darkgoldenrod;
+    line-height: 200px;
+    text-align: center;
+    color: wheat;
+    font-weight: bolder;
+    font-size: 50px;
+    font-family: Arial;
+}
+#mid{
+    height: 600px;
+    background-color: wheat;
+    text-align: center;
+    font-size: 35px;
+}
+#login{
+    width: 130px;
+    height: 40px;
+}
+#register{
+    width: 130px;
+    height: 40px;
+}
+#foot{
+    height: 146px;
+    background-color: dodgerblue;
+}
