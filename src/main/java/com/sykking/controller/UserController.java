@@ -21,6 +21,8 @@ public class UserController {
     @GetMapping("/register")
     public void register(User user, HttpServletResponse response) throws IOException {
         System.out.println("2");
+
+        System.out.println("hotfix test");
         if (user != null){
             userService.addUser(user);
             response.sendRedirect("/chat/login.html");
