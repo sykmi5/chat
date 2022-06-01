@@ -20,7 +20,7 @@ public class UserController {
 
     @GetMapping("/register")
     public void register(User user, HttpServletResponse response) throws IOException {
-        System.out.println("1");
+        System.out.println("2");
         if (user != null){
             userService.addUser(user);
             response.sendRedirect("/chat/login.html");
