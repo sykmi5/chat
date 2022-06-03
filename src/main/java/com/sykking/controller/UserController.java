@@ -52,6 +52,11 @@ public class UserController {
         return user.getUsername();
     }
 
+    @GetMapping("/hot_fix")
+    public String hot_fix(){
+        System.out.println("this is hot_fix");
+        return "hotfix";
+
     @PostMapping("/master")
     public String master(){
         return "";
