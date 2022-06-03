@@ -9,8 +9,8 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 public class ChatApplication {
 
     public static void main(String[] args) {
+        System.out.println("111");
         SpringApplication.run(ChatApplication.class, args);
-111
     }
 
 }
