@@ -23,42 +23,43 @@ public class UserController {
         System.out.println("2");
         System.out.println("hotfix test");
         System.out.println("这是hotfix");
-        if (user != null){
+        if (user != null) {
             userService.addUser(user);
             response.sendRedirect("/chat/login.html");
-        }else {
+        } else {
 
         }
     }
 
     @PostMapping("/login")
-    public void login(@RequestParam String username,@RequestParam String password, HttpServletRequest request,HttpServletResponse response) throws IOException {
-            User user = userService.queryUser(username);
-            if(user == null){
-                PrintWriter writer = response.getWriter();
-                writer.println("用户名或密码错误");
-            }else {
-                HttpSession session = request.getSession();
-                session.setAttribute("LoginUser",user);
-                response.sendRedirect("/chat/main.html");
-            }
+    public void login(@RequestParam String username, @RequestParam String password, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        User user = userService.queryUser(username);
+        if (user == null) {
+            PrintWriter writer = response.getWriter();
+            writer.println("用户名或密码错误");
+        } else {
+            HttpSession session = request.getSession();
+            session.setAttribute("LoginUser", user);
+            response.sendRedirect("/chat/main.html");
+        }
 
     }
 
     @GetMapping("/getUsername")
-    public String getUsername(HttpServletRequest request){
+    public String getUsername(HttpServletRequest request) {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("LoginUser");
         return user.getUsername();
     }
 
     @GetMapping("/hot_fix")
-    public String hot_fix(){
+    public String hot_fix() {
         System.out.println("this is hot_fix");
         return "hotfix";
+    }
 
     @PostMapping("/master")
-    public String master(){
+    public String master() {
         return "";
     }
 
