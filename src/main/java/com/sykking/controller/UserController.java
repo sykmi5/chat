@@ -52,5 +52,10 @@ public class UserController {
         return user.getUsername();
     }
 
+    @PostMapping("/master")
+    public String master(){
+        return "";
+    }
+
 
 }
