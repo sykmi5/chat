@@ -17,7 +17,7 @@ import java.io.PrintWriter;
 public class UserController {
     @Autowired
     private UserService userService;
-//t1t1t1
+//assdasd
     @GetMapping("/register")
     public void register(User user, HttpServletResponse response) throws IOException {
         System.out.println("hello world");
@@ -28,7 +28,7 @@ public class UserController {
 
         }
     }
-//t2
+//asdsadsadsa
     @PostMapping("/login")
     public void login(@RequestParam String username, @RequestParam String password, HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = userService.queryUser(username);
