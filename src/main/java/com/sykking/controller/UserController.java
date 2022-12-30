@@ -17,10 +17,9 @@ import java.io.PrintWriter;
 public class UserController {
     @Autowired
     private UserService userService;
-//assdasd
+
     @GetMapping("/register")
     public void register(User user, HttpServletResponse response) throws IOException {
-        System.out.println("hello world");
         if (user != null) {
             userService.addUser(user);
             response.sendRedirect("/chat/login.html");
@@ -28,7 +27,7 @@ public class UserController {
 
         }
     }
-//asdsadsadsa
+
     @PostMapping("/login")
     public void login(@RequestParam String username, @RequestParam String password, HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = userService.queryUser(username);
