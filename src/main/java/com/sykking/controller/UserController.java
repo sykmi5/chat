@@ -27,7 +27,7 @@ public class UserController {
 
         }
     }
-
+//t2
     @PostMapping("/login")
     public void login(@RequestParam String username, @RequestParam String password, HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = userService.queryUser(username);
