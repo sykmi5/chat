@@ -25,6 +25,7 @@ public class UserController {
             response.sendRedirect("/chat/login.html");
         } else {
             System.out.println("哈喽 dev-syk提交");
+            System.out.println("syk1");
         }
     }
 
@@ -39,6 +40,7 @@ public class UserController {
             HttpSession session = request.getSession();
             session.setAttribute("LoginUser", user);
             response.sendRedirect("/chat/main.html");
+            System.out.println("2");
         }
 
     }
@@ -47,6 +49,7 @@ public class UserController {
     public String getUsername(HttpServletRequest request) {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("LoginUser");
+        System.out.println(3);
         return user.getUsername();
     }
 
