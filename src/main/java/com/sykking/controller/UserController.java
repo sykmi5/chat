@@ -39,6 +39,7 @@ public class UserController {
             HttpSession session = request.getSession();
             session.setAttribute("LoginUser", user);
             response.sendRedirect("/chat/main.html");
+            System.out.println("2");
         }
 
     }
