@@ -48,6 +48,7 @@ public class UserController {
     public String getUsername(HttpServletRequest request) {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("LoginUser");
+        System.out.println(3);
         return user.getUsername();
     }
 
