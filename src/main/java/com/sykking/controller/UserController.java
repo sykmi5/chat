@@ -24,6 +24,7 @@ public class UserController {
             userService.addUser(user);
             response.sendRedirect("/chat/login.html");
         } else {
+            System.out.println("dev2");
             System.out.println("哈喽 dev-syk提交");
             System.out.println("syk1");
         }
