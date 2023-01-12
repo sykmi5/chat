@@ -30,6 +30,7 @@ public class UserController {
 
     @PostMapping("/login")
     public void login(@RequestParam String username, @RequestParam String password, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        System.out.println("dev2-test新增");
         User user = userService.queryUser(username);
         if (user == null) {
             PrintWriter writer = response.getWriter();
